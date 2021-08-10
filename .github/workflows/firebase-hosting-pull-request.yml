@@ -8,9 +8,8 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - name: Retrieving Actions.
-        uses: actions/checkout@v2
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
       - name: Installing UI Dependencies.
         run: cd ui && npm ci
       - name: Build UI.
