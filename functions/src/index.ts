@@ -6,8 +6,8 @@ const app = express();
 
 const whitelist = [
   'http://localhost',
-  'https://breaddit-1ce34.firebaseapp.com',
-  'https://breaddit-1ce34.web.app',
+  'https://rim-wealth-tracker-322501.firebaseapp.com',
+  'https://rim-wealth-tracker-322501.web.app',
 ];
 const corsOptionsDelegate = function (req: any, callback: any) {
   let corsOptions;
