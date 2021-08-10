@@ -9,7 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd ui && npm run build && cd ../functions && npm ci && npm run build
+      - uses: actions/setup-node@v2
+      - name: Installing UI Dependencies.
+      - run: cd ui && npm ci
+      - name: Build UI.
+      - run: npm run build
+      - name: Installing Server Dependencies.
+      - run: cd ../functions && npm ci
+      - name: Installing Server Dependencies.
+      - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
