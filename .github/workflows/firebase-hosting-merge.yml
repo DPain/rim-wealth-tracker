@@ -10,9 +10,8 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Retrieving Actions.
-        uses: actions/checkout@v2
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
       - name: Installing UI Dependencies.
         run: cd ui && npm ci
       - name: Build UI.
