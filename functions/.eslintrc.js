@@ -31,5 +31,6 @@ module.exports = {
     'quotes': ['error', 'single'],
     'object-curly-spacing': ['error', 'always'],
     'space-before-function-paren': ['error', 'always'],
+    'new-cap': ['error', { 'capIsNew': false }],
   },
 };

@@ -1,11 +1,11 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 // const fb = require('../firebase');
 // const db = fb.database();
 
-const router: Router = Router();
+const router = Router();
 
 // Test
-router.get('/', (req: any, res: any) => {
+const WealthRouter: Router = router.get('/', (req: Request, res: Response) => {
   res.status(200).send({ result: true });
   /**
   const ref = db.ref('/subreddit');
@@ -19,4 +19,4 @@ router.get('/', (req: any, res: any) => {
    */
 });
 
-module.exports = router;
+export { WealthRouter };

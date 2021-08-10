@@ -1,7 +1,6 @@
-import functions = require('firebase-functions');
-import express = require('express');
-import { Router } from 'express';
-import cors = require('cors');
+import * as functions from 'firebase-functions';
+import * as express from 'express';
+import * as cors from 'cors';
 
 const app = express();
 
@@ -34,12 +33,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Routes
-const wealth: Router = require('./routes/wealth');
+import { WealthRouter } from './routes/wealth';
 
 /**
  * Exposed APIs
  */
-app.use('/wealth', wealth);
+app.use('/wealth', WealthRouter);
 
 /**
  * Health Check.
