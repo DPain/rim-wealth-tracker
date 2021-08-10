@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModMetaData>
+    <!-- The name of the mod -->
+    <name>Rim Wealth Tracker</name>
+    
+    <!-- The mod author names, usually set to your Steam/Forum name -->
+    <author>D_Pain</author>
+    
+    <!-- A URL to be displayed on your mod info page(if available). Can be set to link to anything. Most link it to their Github/Workshop page/forum post. -->
+    <url>https://github.com/DPain/rim-wealth-tracker</url>
+    
+    <!-- Added in 1.0. Please make it human readable. Avoid acronyms where possible. Normally qualifiers seperated by periods.-->
+    <packageId>DPain.RimWealthTracker</packageId>
+    
+    <!-- Supported version lists which versions of Rimworld your mod is compatible with. If your mod doesn't break across versions, lists them all here. -->
+    <supportedVersions>
+      <li>1.3</li>
+    </supportedVersions>
+    
+    <!-- Describes your mod, can be multiple lines long. -->
+    <description>This mod tracks various information and posts it to a Discord server of your choice.</description>
+    
+    <!-- Lists the mods which should be loaded before your mod. Helps ensure your dependencies are loaded in first. -->
+    <loadAfter>
+      <li>Ludeon.RimWorld</li>
+      <li>Ludeon.RimWorld.Royalty</li>
+      <li>Ludeon.RimWorld.Ideology</li>
+    </loadAfter>
+
+    <modDependencies>
+      <li>
+        <packageId>brrainz.harmony</packageId>
+        <displayName>Harmony</displayName>
+        <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+        <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+      </li>
+    </modDependencies>
+    <!--
+    <modDependencies>
+        <li>
+            <packageId>UnlimitedHugs.HugsLib</packageId>
+            <displayName>HugsLib</displayName>
+            <downloadUrl>https://github.com/UnlimitedHugs/RimworldHugsLib/releases/latest</downloadUrl>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/818773962</steamWorkshopUrl>
+        </li>
+    </modDependencies>
+    <loadAfter>
+        <li>UnlimitedHugs.HugsLib</li>
+    </loadAfter>
+    -->
+    
+    <!-- List of packageIds of any mods which are incompatible with your mod. 
+    <incompatibleWith>
+        <li></li>
+    </incompatibleWith>
+	-->
+</ModMetaData>
