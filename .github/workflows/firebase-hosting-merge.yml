@@ -14,13 +14,13 @@ jobs:
         uses: actions/checkout@v2
         uses: actions/setup-node@v2
       - name: Installing UI Dependencies.
-      - run: cd ui && npm ci
+        run: cd ui && npm ci
       - name: Build UI.
-      - run: npm run build
+        run: npm run build
       - name: Installing Server Dependencies.
-      - run: cd ../functions && npm ci
+        run: cd ../functions && npm ci
       - name: Installing Server Dependencies.
-      - run: npm run build
+        run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
