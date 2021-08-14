@@ -8,7 +8,7 @@ namespace rim_wealth_tracker.API {
     class API_List {
         public static List<Courier> API_Details = new List<Courier> {
             new Courier("Health Check", "Pings the Wealth Tracker API.", "Health", typeof(Task<bool>)),
-            new Courier("Health Check2", "Pings the Wealth Tracker API.", "Health", typeof(Task<bool>)),
+            new Courier("Submit Wealth", "Submits the world's wealth to the API.", "SubmitWealth", typeof(Task<bool>)),
             new Courier("Health Check3", "Pings the Wealth Tracker API.", "Health", typeof(Task<bool>)),
             new Courier("Health Check4", "Pings the Wealth Tracker API.", "Health", typeof(Task<bool>)),
             new Courier("Health Check5", "Pings the Wealth Tracker API.", "Health", typeof(Task<bool>)),

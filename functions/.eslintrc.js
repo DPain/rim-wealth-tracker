@@ -32,5 +32,6 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'space-before-function-paren': ['error', 'always'],
     'new-cap': ['error', { 'capIsNew': false }],
+    'indent': ['error', 2],
   },
 };

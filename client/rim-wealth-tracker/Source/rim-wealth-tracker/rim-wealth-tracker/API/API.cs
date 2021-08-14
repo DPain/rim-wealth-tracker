@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using System;
+using RimWorld;
+using Verse;
 
 namespace rim_wealth_tracker.API {
     class WealthTrackerAPI {
@@ -21,12 +23,38 @@ namespace rim_wealth_tracker.API {
 
         public async Task<bool> Health() {
             bool result = false;
-            RestRequest req = new RestRequest("health");
-            req.Timeout = 10000;
+            RestRequest req = new RestRequest("health") {
+                Timeout = 5000
+            };
 
             IRestResponse resp = await http.ExecuteGetAsync(req);
             if (resp.StatusCode == HttpStatusCode.OK) {
                 result = true;
+            }
+
+            return result;
+        }
+
+        public async Task<bool> SubmitWealth() {
+            bool result = false;
+
+            if (Current.ProgramState == ProgramState.Playing) {
+                RestRequest req = new RestRequest("wealth") {
+                    Timeout = 5000
+                };
+
+                var body = new {
+                    wealth = WealthUtility.PlayerWealth,
+                    days = (float)Find.TickManager.TicksGame / (float)GenDate.TicksPerDay,
+                    name = SteamUtility.SteamPersonaName.Length > 0 ? SteamUtility.SteamPersonaName : "Player"
+                };
+
+                req.AddJsonBody(body);
+
+                IRestResponse resp = await http.ExecutePostAsync(req);
+                if (resp.StatusCode == HttpStatusCode.OK) {
+                    result = true;
+                }
             }
 
             return result;
