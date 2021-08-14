@@ -19,6 +19,7 @@ module.exports = {
     sourceType: 'module',
   },
   ignorePatterns: [
+    '.eslintrc.js', // Ignore itself.
     '/lib/**/*', // Ignore built files.
   ],
   plugins: [
@@ -33,5 +34,6 @@ module.exports = {
     'space-before-function-paren': ['error', 'always'],
     'new-cap': ['error', { 'capIsNew': false }],
     'indent': ['error', 2],
+    'max-len': ['warn', { 'code': 80, 'tabWidth': 2, 'ignoreUrls': true, 'ignoreComments': true, 'ignoreTrailingComments': true, 'ignoreStrings': true, 'ignoreTemplateLiterals': true}],
   },
 };
