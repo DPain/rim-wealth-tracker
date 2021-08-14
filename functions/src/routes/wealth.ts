@@ -16,6 +16,9 @@ router.get('/', (req: Request, res: Response) => {
   res.sendStatus(200);
 });
 
+/**
+ * Saves ranking to the leaderboard if it beats any existing rank.
+ */
 router.post('/', (req: Request, res: Response) => {
   // @TODO: Implement.
 
@@ -25,9 +28,6 @@ router.post('/', (req: Request, res: Response) => {
 
   if (name && days && wealth) {
     const rank: Rank = new Rank(name, days, wealth);
-
-    console.log(rank);
-    console.log(JSON.stringify(rank));
 
     const ref = db.ref('/ranks');
     ref.push(rank).then((snapshot: Reference) => {
