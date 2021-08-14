@@ -43,7 +43,7 @@ app.use('/wealth', WealthRouter);
 /**
  * Health Check.
  */
-app.get('/health', (req: any, res: any) => {
+app.get('/health', (req, res) => {
   res.status(200).send();
 });
 

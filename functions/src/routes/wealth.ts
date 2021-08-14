@@ -30,26 +30,13 @@ router.post('/', (req: Request, res: Response) => {
     console.log(JSON.stringify(rank));
 
     const ref = db.ref('/ranks');
-    ref.set({ hello: 123 }).then((snapshot: Reference) => {
-      console.log('LOL');
-      res.status(200).send(snapshot.key);
-      return;
-    }).catch((error: any) => {
-      console.log('LOL123');
-      console.error(error);
-      res.status(500).send();
-    });
-
-    /**
-    const ref = db.ref('/ranks');
-    ref.push(JSON.stringify(rank)).then((snapshot: Reference) => {
+    ref.push(rank).then((snapshot: Reference) => {
       res.status(200).send(snapshot.key);
       return;
     }).catch((error: any) => {
       console.error(error);
       res.status(500).send();
     });
-     */
   } else {
     res.status(400).send({
       msg: 'Bad request!',
