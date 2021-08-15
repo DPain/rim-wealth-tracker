@@ -24,22 +24,32 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-unsafe-member-access': 0,
+    '@typescript-eslint/no-unsafe-assignment': 0,
     'quotes': ['error', 'single'],
     'object-curly-spacing': ['error', 'always'],
     'space-before-function-paren': ['error', 'always'],
-    'new-cap': ['error', { 'capIsNew': false }],
+    'new-cap': ['error', {
+      'capIsNew': false
+    }],
     'indent': ['error', 2],
-    'max-len': ['warn', { 'code': 80, 'tabWidth': 2, 'ignoreUrls': true, 'ignoreComments': true, 'ignoreTrailingComments': true, 'ignoreStrings': true, 'ignoreTemplateLiterals': true}],
+    'max-len': ['warn', {
+      'code': 80,
+      'tabWidth': 2,
+      'ignoreUrls': true,
+      'ignoreComments': true,
+      'ignoreTrailingComments': true,
+      'ignoreStrings': true,
+      'ignoreTemplateLiterals': true
+    }],
   },
-  overrides: [
-    {
-      files: [
-        "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)",
-      ],
-      env: {
-        jest: true,
-      },
+  overrides: [{
+    files: [
+      "**/__tests__/*.{j,t}s?(x)",
+      "**/tests/unit/**/*.spec.{j,t}s?(x)",
+    ],
+    env: {
+      jest: true,
     },
-  ],
+  }, ],
 };
