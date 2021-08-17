@@ -4,6 +4,8 @@
       <router-link to="/">Home</router-link>
       |
       <router-link to="/about">About</router-link>
+      |
+      <router-link to="/leader">Leaderboard</router-link>
     </div>
     <router-view />
   </div>
@@ -32,10 +34,10 @@ body {
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: $primary-dark;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: $primary;
     }
   }
 }

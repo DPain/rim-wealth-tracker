@@ -1,29 +1,50 @@
 <template>
   <div class="home">
     <div class="banner">
-      <img alt="Vue logo" src="../assets/logo.png" />
-      <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+      Welcome to Your Vue.js + TypeScript App.
+      <br />
+      <img class="logo" alt="Logo" src="@/assets/logo.png" />
     </div>
     <div id="news">
       <h2>News</h2>
-      <b-card class="mb-1 mt-1 p-3" raised no-body>
-        <b-card-title v-text="'hi'"></b-card-title>
-        <b-card-text v-html="'item.body'"></b-card-text>
-      </b-card>
+      <News v-for="(el, i) in news" :key="i" :title="el.title" :msg="el.msg" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import News from '@/components/News.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    News,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  private _news!: News[];
+
+  get news() {
+    return this._news;
+  }
+
+  created() {
+    this._news = [];
+    this.loadNews();
+  }
+
+  loadNews(): void {
+    for (let i = 0; i < 4; i++) {
+      const entry: News = new News({
+        propsData: {
+          title: `title: ${i} wow`,
+          msg: 'msg',
+        },
+      });
+      this.news.push(entry);
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -35,25 +56,11 @@ export default class Home extends Vue {}
   width: 50%;
 }
 
-#subreaddit-box {
-  background-color: $dark;
-  border-radius: 0.25rem;
-  border-color: $gray-500;
+.home {
+  color: $primary-light;
 }
 
-#prepend,
-#prepend:disabled {
-  opacity: 1;
-  border-color: $gray-500;
-  margin-right: 0.5rem;
-}
-
-#enter {
-  border-color: $gray-500;
-  margin-left: 0.5rem;
-}
-
-a {
-  color: #42b983;
+.logo {
+  margin: 1vh;
 }
 </style>

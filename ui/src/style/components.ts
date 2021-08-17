@@ -1,11 +1,17 @@
 const settings = {
   BCard: {
-    bgVariant: 'comp-dark',
-    textVariant: 'white',
-    borderVariant: 'light-gray',
+    bgVariant: '_2dp',
+    textVariant: 'dark-light',
+    borderVariant: '_2dp',
   },
-  BButton: { variant: 'dark', borderVariant: 'white' },
-  BFormInput: { variant: 'dark', borderVariant: 'white' },
+  BButton: {
+    variant: 'dark',
+    borderVariant: 'white',
+  },
+  BFormInput: {
+    variant: 'dark',
+    borderVariant: 'white',
+  },
   Container: {},
 };
 

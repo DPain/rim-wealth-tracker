@@ -4,8 +4,10 @@ module.exports = {
     node: true,
   },
   extends: [
-    "plugin:vue/recommended",
-    "eslint:recommended",
+    'plugin:vue/recommended',
+    'eslint:recommended',
+    'prettier/vue',
+    'plugin:prettier/recommended',
     "@vue/typescript/recommended",
     "@vue/prettier",
     "@vue/prettier/@typescript-eslint",
@@ -19,29 +21,19 @@ module.exports = {
     project: `./tsconfig.json`,
     parser: "@typescript-eslint/parser"
   },
+  plugins: ['prettier'],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    '@typescript-eslint/no-var-requires': 0,
-    '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/no-unsafe-member-access': 0,
-    '@typescript-eslint/no-unsafe-assignment': 0,
-    'quotes': ['error', 'single'],
-    'object-curly-spacing': ['error', 'always'],
-    'space-before-function-paren': ['error', 'always'],
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
     'new-cap': ['error', {
       'capIsNew': false
-    }],
-    'indent': ['error', 2],
-    'max-len': ['warn', {
-      'code': 80,
-      'tabWidth': 2,
-      'ignoreUrls': true,
-      'ignoreComments': true,
-      'ignoreTrailingComments': true,
-      'ignoreStrings': true,
-      'ignoreTemplateLiterals': true
-    }],
+    }]
   },
   overrides: [{
     files: [

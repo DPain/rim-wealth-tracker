@@ -4,5 +4,10 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+		"typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+		"prettier.singleQuote": true,
+		"prettier.htmlWhitespaceSensitivity": "ignore"
+	}
 }
