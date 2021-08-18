@@ -1,44 +1,51 @@
 <template>
   <div class="home">
-    <div class="banner">Leaderboard</div>
-    <div id="news">
-      <h2>News</h2>
-      <News v-for="(el, i) in data" :key="i" :title="el.title" :msg="el.msg" />
+    <div id="container">
+      <h2 class="p-2">Leaderboard</h2>
+      <div v-for="(el, i) in leaderboard" :key="i">
+        <b-card class="mb-1 mt-1 p-3" raised no-body>
+          <b-card-title v-text="i + 1" />
+          <b-card-sub-title v-text="el.name" />
+          <b-card-text class="mt-4">Wealth: {{ el.wealth }}</b-card-text>
+          <b-card-text>Days: {{ el.days }}</b-card-text>
+        </b-card>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import News from '@/components/News.vue';
+import { Component, Vue } from 'vue-property-decorator';
 
-@Component({
-  components: {
-    News,
-  },
-})
+@Component
 export default class Leaderboard extends Vue {
-  constructor() {
-    super();
-    this.data = [];
+  private _leaderboard!: any[];
+
+  get leaderboard() {
+    // Sort from highest
+    return this._leaderboard.sort((e1, e2) => e1.wealth - e2.wealth);
   }
 
-  mounted() {
-    this.loadNews();
+  created() {
+    this._leaderboard = [];
+    this.loadLeaderboard();
   }
 
-  @Prop() private data: News[];
-
-  loadNews(): void {
+  loadLeaderboard(): void {
     for (let i = 0; i < 4; i++) {
-      const news: News = new News({
-        propsData: {
-          title: 'title wow',
-          msg: 'msg',
-        },
-      });
-      this.data.push(news);
+      const entry = {
+        name: `Player: ${i}`,
+        wealth: 4 - i,
+        days: 123,
+      };
+      this.leaderboard.push(entry);
     }
+  }
+
+  genLeaderboardString(wealth: number, days: number): string {
+    const result = `Wealth: ${wealth}\nDays: ${days}`;
+    console.log(result);
+    return result;
   }
 }
 </script>
@@ -46,31 +53,44 @@ export default class Leaderboard extends Vue {
 <style scoped lang="scss">
 @import '@/style/variables.scss';
 
-#news {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+/* responsive, form small screens */
+@include media-breakpoint-down(sm) {
+  #container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
 }
 
-#subreaddit-box {
-  background-color: $dark;
-  border-radius: 0.25rem;
-  border-color: $gray-500;
+@include media-breakpoint-between(sm, md) {
+  #container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
 }
 
-#prepend,
-#prepend:disabled {
-  opacity: 1;
-  border-color: $gray-500;
-  margin-right: 0.5rem;
+@include media-breakpoint-between(md, lg) {
+  #container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+  }
 }
 
-#enter {
-  border-color: $gray-500;
-  margin-left: 0.5rem;
+@include media-breakpoint-between(lg, xl) {
+  #container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
 }
 
-a {
-  color: #42b983;
+@include media-breakpoint-up(xl) {
+  #container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 }
 </style>

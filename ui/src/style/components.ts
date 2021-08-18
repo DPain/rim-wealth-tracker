@@ -1,7 +1,7 @@
 const settings = {
   BCard: {
     bgVariant: '_2dp',
-    textVariant: 'dark-light',
+    textVariant: 'dark-primary-text',
     borderVariant: '_2dp',
   },
   BButton: {

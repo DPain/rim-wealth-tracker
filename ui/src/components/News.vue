@@ -1,7 +1,7 @@
 <template>
-  <b-card class="mb-1 mt-1 p-3" raised no-body>
+  <b-card class="mb-1 mt-1 p-3 custom" raised no-body>
     <b-card-title v-text="title"></b-card-title>
-    <b-card-text v-html="msg"></b-card-text>
+    <b-card-text v-text="msg"></b-card-text>
   </b-card>
 </template>
 
@@ -20,6 +20,8 @@ export default class News extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import '@/style/variables.scss';
+
 h3 {
   margin: 40px 0 0;
 }
@@ -31,7 +33,8 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
+
+div.custom {
+  background-color: get_overlay('primary', '4dp') !important;
 }
 </style>

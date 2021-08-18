@@ -3,9 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
-      <router-link to="/about">About</router-link>
+      <router-link to="/leaderboard">Leaderboard</router-link>
       |
-      <router-link to="/leader">Leaderboard</router-link>
+      <router-link to="/about">About</router-link>
     </div>
     <router-view />
   </div>
@@ -34,10 +34,9 @@ body {
 
   a {
     font-weight: bold;
-    color: $primary-dark;
-
+    color: map-get($theme_map, 'primary-dark');
     &.router-link-exact-active {
-      color: $primary;
+      color: map-get($theme_map, 'primary');
     }
   }
 }
