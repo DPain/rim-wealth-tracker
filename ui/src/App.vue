@@ -27,6 +27,7 @@ body {
   background-color: $dark;
   min-height: 100%;
   height: auto;
+  padding-bottom: 50px;
 }
 
 #nav {

@@ -5,7 +5,7 @@ import * as cors from 'cors';
 const app = express();
 
 const whitelist = [
-  'http://localhost',
+  'http://localhost:8080', // Port matters.
   'https://rim-wealth-tracker-322501.firebaseapp.com',
   'https://rim-wealth-tracker-322501.web.app',
 ];

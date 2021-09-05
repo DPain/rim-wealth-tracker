@@ -2,7 +2,7 @@
   <div class="home">
     <div id="container">
       <h2 class="p-2">Leaderboard</h2>
-      <div v-for="(el, i) in leaderboard" :key="i">
+      <div v-for="(el, i) in ranks" :key="i">
         <b-card class="mb-1 mt-1 p-3" raised no-body>
           <b-card-title v-text="i + 1" />
           <b-card-sub-title v-text="el.name" />
@@ -16,36 +16,27 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Config from '@/config';
+import Rank from '@/model/Rank';
 
 @Component
 export default class Leaderboard extends Vue {
-  private _leaderboard!: any[];
-
-  get leaderboard() {
-    // Sort from highest
-    return this._leaderboard.sort((e1, e2) => e1.wealth - e2.wealth);
-  }
+  private ranks: Rank[] = [];
 
   created() {
-    this._leaderboard = [];
     this.loadLeaderboard();
   }
 
   loadLeaderboard(): void {
-    for (let i = 0; i < 4; i++) {
-      const entry = {
-        name: `Player: ${i}`,
-        wealth: 4 - i,
-        days: 123,
-      };
-      this.leaderboard.push(entry);
-    }
-  }
-
-  genLeaderboardString(wealth: number, days: number): string {
-    const result = `Wealth: ${wealth}\nDays: ${days}`;
-    console.log(result);
-    return result;
+    let wealth_url: string = Config.wealth_url;
+    fetch(wealth_url)
+      .then((response) => {
+        return response.json() as Promise<Rank[]>;
+      })
+      .then((data: Rank[]) => {
+        this.ranks = data;
+      })
+      .catch((err) => console.error(err));
   }
 }
 </script>

@@ -1,5 +1,4 @@
 cd functions
-cmd /c npm run build
+call npm run build
 cd ../
 firebase emulators:start
-pause
