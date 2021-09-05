@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Config from '@/config';
+import Config from '@/config/config';
 import Rank from '@/model/Rank';
 
 @Component
@@ -28,10 +28,15 @@ export default class Leaderboard extends Vue {
   }
 
   loadLeaderboard(): void {
-    let wealth_url: string = Config.wealth_url;
+    let wealth_url: string = Config().wealth_url;
     fetch(wealth_url)
       .then((response) => {
-        return response.json() as Promise<Rank[]>;
+        // Status code: 204 means no data in DB.
+        if (response.status === 200) {
+          return response.json() as Promise<Rank[]>;
+        } else {
+          return [];
+        }
       })
       .then((data: Rank[]) => {
         this.ranks = data;
