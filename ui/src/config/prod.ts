@@ -1,5 +1,3 @@
-// URL: 'https://us-central1-rim-wealth-tracker-322501.cloudfunctions.net/api'
-// Local Testing URL: 'https://us-central1-rim-wealth-tracker-322501.cloudfunctions.net/api'
 const server_url =
   'https://us-central1-rim-wealth-tracker-322501.cloudfunctions.net/api'.replace(
     new RegExp('/+$'),
