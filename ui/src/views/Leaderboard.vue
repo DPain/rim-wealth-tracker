@@ -28,7 +28,7 @@ export default class Leaderboard extends Vue {
   }
 
   loadLeaderboard(): void {
-    let wealth_url: string = Config().wealth_url;
+    let wealth_url: string = Config.wealth_url;
     fetch(wealth_url)
       .then((response) => {
         // Status code: 204 means no data in DB.

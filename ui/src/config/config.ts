@@ -1,14 +1,16 @@
-import Dev from '@/config/dev';
-import Prod from '@/config/prod';
+const PROFILES = ['production', 'PRODUCTION', 'prod', 'PROD'];
 
-export default function () {
-  switch (process.env.NODE_ENV) {
-    case 'production':
-    case 'PRODUCTION':
-    case 'prod':
-    case 'PROD':
-      return Prod;
-    default:
-      return Dev;
-  }
+interface Config {
+  server_url: string;
+  wealth_url: string;
+  news_url: string;
 }
+
+let config: Config;
+if (PROFILES.includes(process.env.NODE_ENV)) {
+  config = require('@/config/prod');
+} else {
+  config = require('@/config/dev');
+}
+
+export default config;
