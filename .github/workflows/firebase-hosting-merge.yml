@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      - name: Set NODE_ENV to PROD.
+        run: export NODE_ENV="PROD"
       - name: Installing UI Dependencies.
         run: cd ui && npm ci
       - name: Build UI.
