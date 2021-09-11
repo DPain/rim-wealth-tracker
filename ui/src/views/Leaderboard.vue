@@ -1,8 +1,8 @@
 <template>
   <div id="leaderboard">
-    <h2 class="p-2">Leaderboard</h2>
+    <h2 class="p-2 mb-1">Leaderboard</h2>
     <div v-for="(el, i) in ranks" :key="i">
-      <b-card class="mb-1 mt-1 p-3" raised no-body>
+      <b-card class="mb-3 p-3" raised no-body>
         <b-card-title v-text="i + 1" />
         <b-card-sub-title v-text="el.name" />
         <b-card-text class="mt-4">Wealth: {{ el.wealth }}</b-card-text>
