@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="leaderboard">
     <h2 class="p-2">Leaderboard</h2>
     <div v-for="(el, i) in ranks" :key="i">
       <b-card class="mb-1 mt-1 p-3" raised no-body>
@@ -47,48 +47,7 @@ export default class Leaderboard extends Vue {
 <style scoped lang="scss">
 @import '@/style/variables.scss';
 
-/* responsive, form small screens */
-@include media-breakpoint-down(sm) {
-  #container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-  }
-}
-
-@include media-breakpoint-between(sm, md) {
-  #container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-  }
-}
-
-@include media-breakpoint-between(md, lg) {
-  #container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-  }
-}
-
-@include media-breakpoint-between(lg, xl) {
-  #container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  #container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-}
-
-#container {
+#leaderboard {
   text-align: center;
 }
 </style>
