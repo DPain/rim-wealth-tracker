@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home">
     <b-jumbotron class="banner" header-level="4">
       <template #header>Rimworld Tracker</template>
 
@@ -42,14 +42,9 @@ import News from '@/components/News.vue';
   },
 })
 export default class Home extends Vue {
-  private _news!: News[];
-
-  get news() {
-    return this._news;
-  }
+  private news: News[] = [];
 
   created() {
-    this._news = [];
     this.loadNews();
   }
 
@@ -70,56 +65,11 @@ export default class Home extends Vue {
 <style scoped lang="scss">
 @import '@/style/variables.scss';
 
-/* responsive, form small screens */
-@include media-breakpoint-down(sm) {
-  .home {
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-  }
-}
-
-@include media-breakpoint-between(sm, md) {
-  .home {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-  }
-}
-
-@include media-breakpoint-between(md, lg) {
-  .home {
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-  }
-}
-
-@include media-breakpoint-between(lg, xl) {
-  .home {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .home {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-}
-
 .banner {
   background-color: get_overlay('primary', '4dp') !important;
 }
 
 #news-section {
   text-align: center;
-}
-
-.column {
-  margin-bottom: 2vh;
 }
 </style>
