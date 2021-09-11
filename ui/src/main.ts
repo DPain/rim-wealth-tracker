@@ -1,7 +1,12 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import { BootstrapVue, IconsPlugin, CardPlugin } from 'bootstrap-vue';
+import {
+  BootstrapVue,
+  IconsPlugin,
+  CardPlugin,
+  JumbotronPlugin,
+} from 'bootstrap-vue';
 
 import '@/style/variables.scss';
 import Settings from '@/style/components';
@@ -13,6 +18,7 @@ Vue.use(BootstrapVue, Settings);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 Vue.use(CardPlugin);
+Vue.use(JumbotronPlugin);
 
 new Vue({
   router,

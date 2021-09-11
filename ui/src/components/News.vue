@@ -35,6 +35,7 @@ li {
 }
 
 div.custom {
-  background-color: get_overlay('primary', '4dp') !important;
+  background-color: get_overlay('primary-light', '4dp') !important;
+  text-align: left;
 }
 </style>

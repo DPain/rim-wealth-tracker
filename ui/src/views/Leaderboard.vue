@@ -1,15 +1,13 @@
 <template>
-  <div class="home">
-    <div id="container">
-      <h2 class="p-2">Leaderboard</h2>
-      <div v-for="(el, i) in ranks" :key="i">
-        <b-card class="mb-1 mt-1 p-3" raised no-body>
-          <b-card-title v-text="i + 1" />
-          <b-card-sub-title v-text="el.name" />
-          <b-card-text class="mt-4">Wealth: {{ el.wealth }}</b-card-text>
-          <b-card-text>Days: {{ el.days }}</b-card-text>
-        </b-card>
-      </div>
+  <div id="container">
+    <h2 class="p-2">Leaderboard</h2>
+    <div v-for="(el, i) in ranks" :key="i">
+      <b-card class="mb-1 mt-1 p-3" raised no-body>
+        <b-card-title v-text="i + 1" />
+        <b-card-sub-title v-text="el.name" />
+        <b-card-text class="mt-4">Wealth: {{ el.wealth }}</b-card-text>
+        <b-card-text>Days: {{ el.days }}</b-card-text>
+      </b-card>
     </div>
   </div>
 </template>
@@ -88,5 +86,9 @@ export default class Leaderboard extends Vue {
     margin-right: auto;
     width: 50%;
   }
+}
+
+#container {
+  text-align: center;
 }
 </style>
