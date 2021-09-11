@@ -19,9 +19,15 @@
         Github
       </b-button>
     </b-jumbotron>
-    <div id="news">
+    <div id="news-section">
       <h2 class="p-2">News</h2>
-      <News v-for="(el, i) in news" :key="i" :title="el.title" :msg="el.msg" />
+      <News
+        v-for="(el, i) in news"
+        :key="i"
+        :title="el.title"
+        :msg="el.msg"
+        class="mb-3"
+      />
     </div>
   </div>
 </template>
@@ -109,7 +115,11 @@ export default class Home extends Vue {
   background-color: get_overlay('primary', '4dp') !important;
 }
 
-#news {
+#news-section {
   text-align: center;
+}
+
+.column {
+  margin-bottom: 2vh;
 }
 </style>
